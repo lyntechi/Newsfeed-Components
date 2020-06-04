@@ -97,8 +97,52 @@ const data = [
     {three separate paragraph elements}
 
     <span class='expandButton'></span>
-  </div>
+  </div> */
+  
+  let articles = document.querySelector(".articles")
+  let divArticle = document.createElement("div")
+  divArticle.classList.add("article")
+  articles.appendChild(divArticle)
+  let h2Title = document.createElement("h2")
+  divArticle.appendChild(h2Title)
+  let articleDate = document.createElement("p")
+  articleDate.classList.add("date")
+  divArticle.appendChild(articleDate) 
+  let paragraphOne = document.createElement("p")
+  let paragraphTwo = document.createElement("p")
+  let paragraphThree = document.createElement("p")
+ divArticle.appendChild(paragraphOne)
+ divArticle.appendChild(paragraphTwo)
+ divArticle.appendChild(paragraphThree)
+ let expandButton = document.createElement("span")
+ divArticle.appendChild(expandButton)
+ expandButton.classList.add("expandButton")
+  
+  function articleMaker(text){
+   
+    return divArticle;
+   
+  }
+ 
 
+  let articleOne = articleMaker()
+  console.log(articleOne)
+  let articleTwo = articleMaker()
+  console.log(articleOne)
+  let articleThree = articleMaker()
+  console.log(articleOne)
+  let articleFour = articleMaker()
+  console.log(articleOne)
+
+h2Title.textContent = (data[0].title)
+articleDate.textContent = (data[0].date)
+paragraphOne.textContent = (data[0].firstParagraph)
+paragraphTwo.textContent = (data[0].secondParagraph)
+paragraphThree.textContent = (data[0].thirdParagraph)
+console.log(divArticle) 
+
+
+  /*
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.
