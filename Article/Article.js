@@ -88,7 +88,8 @@ const data = [
   }
 ];
 
-/* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
+/* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup 
+like the template below: 
 
   <div class="article">
     <h2>{title of the article}</h2>
@@ -99,11 +100,14 @@ const data = [
     <span class='expandButton'></span>
   </div> */
   
+
+  
   let articles = document.querySelector(".articles")
   let divArticle = document.createElement("div")
   divArticle.classList.add("article")
   articles.appendChild(divArticle)
   let h2Title = document.createElement("h2")
+  // let allH2Title = document.querySelectorAll("h2")
   divArticle.appendChild(h2Title)
   let articleDate = document.createElement("p")
   articleDate.classList.add("date")
@@ -111,35 +115,32 @@ const data = [
   let paragraphOne = document.createElement("p")
   let paragraphTwo = document.createElement("p")
   let paragraphThree = document.createElement("p")
- divArticle.appendChild(paragraphOne)
+  divArticle.appendChild(paragraphOne)
  divArticle.appendChild(paragraphTwo)
  divArticle.appendChild(paragraphThree)
  let expandButton = document.createElement("span")
  divArticle.appendChild(expandButton)
  expandButton.classList.add("expandButton")
-  
-  function articleMaker(text){
-   
-    return divArticle;
-   
-  }
+ expandButton.textContent = "Click To Open"
  
 
-  let articleOne = articleMaker()
-  console.log(articleOne)
-  let articleTwo = articleMaker()
-  console.log(articleOne)
-  let articleThree = articleMaker()
-  console.log(articleOne)
-  let articleFour = articleMaker()
-  console.log(articleOne)
 
-h2Title.textContent = (data[0].title)
-articleDate.textContent = (data[0].date)
-paragraphOne.textContent = (data[0].firstParagraph)
-paragraphTwo.textContent = (data[0].secondParagraph)
-paragraphThree.textContent = (data[0].thirdParagraph)
+  function articleMaker(text){
+    
+    return divArticle;
+  }
+
+
+
+for (let i=0; i<data.length; i++){
+  h2Title.textContent = (data[i].title)
+  articleDate.textContent = (data[i].date)
+  paragraphOne.textContent = (data[i].firstParagraph)
+  paragraphTwo.textContent = (data[i].secondParagraph)
+  paragraphThree.textContent = (data[i].thirdParagraph)
+  }
 console.log(divArticle) 
+
 
 
   /*
