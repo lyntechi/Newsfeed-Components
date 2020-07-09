@@ -88,7 +88,8 @@ const data = [
   }
 ];
 
-/* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
+/* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup 
+like the template below: 
 
   <div class="article">
     <h2>{title of the article}</h2>
@@ -97,8 +98,52 @@ const data = [
     {three separate paragraph elements}
 
     <span class='expandButton'></span>
-  </div>
+  </div> */
+  
 
+  
+  let articles = document.querySelector(".articles")
+  let divArticle = document.createElement("div")
+  divArticle.classList.add("article")
+  articles.appendChild(divArticle)
+  let h2Title = document.createElement("h2")
+  // let allH2Title = document.querySelectorAll("h2")
+  divArticle.appendChild(h2Title)
+  let articleDate = document.createElement("p")
+  articleDate.classList.add("date")
+  divArticle.appendChild(articleDate) 
+  let paragraphOne = document.createElement("p")
+  let paragraphTwo = document.createElement("p")
+  let paragraphThree = document.createElement("p")
+  divArticle.appendChild(paragraphOne)
+ divArticle.appendChild(paragraphTwo)
+ divArticle.appendChild(paragraphThree)
+ let expandButton = document.createElement("span")
+ divArticle.appendChild(expandButton)
+ expandButton.classList.add("expandButton")
+ expandButton.textContent = "Click To Open"
+ 
+
+
+  function articleMaker(text){
+    
+    return divArticle;
+  }
+
+
+
+for (let i=0; i<data.length; i++){
+  h2Title.textContent = (data[i].title)
+  articleDate.textContent = (data[i].date)
+  paragraphOne.textContent = (data[i].firstParagraph)
+  paragraphTwo.textContent = (data[i].secondParagraph)
+  paragraphThree.textContent = (data[i].thirdParagraph)
+  }
+console.log(divArticle) 
+
+
+
+  /*
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as its one argument, or 5 separate arguments mapping to each piece of the data object above.
