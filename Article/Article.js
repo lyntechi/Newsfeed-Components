@@ -102,44 +102,56 @@ like the template below:
   
 
   
-  let articles = document.querySelector(".articles")
-  let divArticle = document.createElement("div")
-  divArticle.classList.add("article")
-  articles.appendChild(divArticle)
-  let h2Title = document.createElement("h2")
-  // let allH2Title = document.querySelectorAll("h2")
-  divArticle.appendChild(h2Title)
-  let articleDate = document.createElement("p")
-  articleDate.classList.add("date")
-  divArticle.appendChild(articleDate) 
-  let paragraphOne = document.createElement("p")
-  let paragraphTwo = document.createElement("p")
-  let paragraphThree = document.createElement("p")
-  divArticle.appendChild(paragraphOne)
- divArticle.appendChild(paragraphTwo)
- divArticle.appendChild(paragraphThree)
- let expandButton = document.createElement("span")
- divArticle.appendChild(expandButton)
- expandButton.classList.add("expandButton")
- expandButton.textContent = "Click To Open"
+ const articles = document.querySelector('.articles')
+ function articleMaker(data){
+
+   
+    const articleContainer = document.createElement('div');
+    const titleOfArticle = document.createElement('h2')
+    const dateOfArticle = document.createElement('p')
+    const expandButton = document.createElement('span')
+    const paragraphOne= document.createElement('p')
+    const paragraphTwo= document.createElement('p')
+    const paragraphThree= document.createElement('p')
+    
+   
+    
+  
+    expandButton.classList.add('expandButton')
+    
+    articleContainer.classList.add('article')
+    articleContainer.appendChild(titleOfArticle)
+    articleContainer.appendChild(dateOfArticle)
+    articleContainer.appendChild(paragraphOne)
+    articleContainer.appendChild(paragraphTwo)
+    articleContainer.appendChild(paragraphThree)
+    articleContainer.appendChild(expandButton)
+  
+    
+    titleOfArticle.textContent= data.title
+    dateOfArticle.textContent=data.date
+    paragraphOne.textContent=data.firstParagraph
+    paragraphTwo.textContent=data.secondParagraph
+    paragraphThree.textContent=data.thirdParagraph
+    expandButton.textContent='+'
+
+    expandButton.addEventListener('click', ()=>{
+      articleContainer.classList.toggle('article-open')
+    })
+  return articleContainer
+ }
  
 
 
-  function articleMaker(text){
-    
-    return divArticle;
-  }
+data.forEach(item=>{
+  const article = articleMaker(item)
+  articles.appendChild(article)
+})
+// for(let i=0; i<data.articles.length; i++){
+//   const article = articleMaker(data[i])
+//   articleMaker.appendChild(article)
+// }
 
-
-
-for (let i=0; i<data.length; i++){
-  h2Title.textContent = (data[i].title)
-  articleDate.textContent = (data[i].date)
-  paragraphOne.textContent = (data[i].firstParagraph)
-  paragraphTwo.textContent = (data[i].secondParagraph)
-  paragraphThree.textContent = (data[i].thirdParagraph)
-  }
-console.log(divArticle) 
 
 
 
